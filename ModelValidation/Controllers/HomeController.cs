@@ -33,5 +33,22 @@ namespace ModelValidation.Controllers
             }
             return View();
         }
+
+        public JsonResult ValidateDate(string Date)
+        {
+            DateTime parsedDate;
+            if (!DateTime.TryParse(Date, out parsedDate))
+            {
+                return Json("Введите корректную дату");
+            }
+            else if (DateTime.Now > parsedDate)
+            {
+                return Json("Нельзя указывать прошедшую дату");
+            }
+            else
+            {
+                return Json(true);
+            }
+        }
     }
 }

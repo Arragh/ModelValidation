@@ -7,11 +7,13 @@
 @section scripts
 {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript">
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @*<script type="text/javascript">
         $(document).ready(function () {
             $("input.input-validation-error").closest(".form-group").addClass("has-danger");
         })
-    </script>
+    </script>*@
 }
 
 <div class="bg-primary m-1 p-1 text-white">
@@ -38,7 +40,7 @@
         <div>
             <span asp-validation-for="TermsAccepted" class="text-danger"></span>
         </div>
-        <input asp-for="TermsAccepted" />
+        <input asp-for="TermsAccepted" value="true" />
         <label asp-for="TermsAccepted" class="form-check-label">I accepted the terms & conditions</label>
     </div>
     <button type="submit" class="btn btn-primary">Засубмитить лол</button>

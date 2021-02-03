@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using ModelValidation.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,9 +16,11 @@ namespace ModelValidation.Models
 
         [UIHint("Date")]
         [Required(ErrorMessage = "Укажите дату")]
+        [Remote("ValidateDate", "Home")]
         public DateTime Date { get; set; }
 
-        [Range(typeof(bool), "true", "true", ErrorMessage = "Вы должны принять условия соглашения")]
+        //[Range(typeof(bool), "true", "true", ErrorMessage = "Вы должны принять условия соглашения")]
+        [MustBeTrue(ErrorMessage = "Ну не тру же...")]
         public bool TermsAccepted { get; set; }
     }
 }
